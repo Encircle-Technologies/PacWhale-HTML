@@ -251,7 +251,7 @@ module.exports = {
         },
         backgroundImage: theme => ({
             none: 'none',
-            'breadcrumb_gradient': 'linear-gradient(180deg, #D1F5FF 0%, #FDFEFD 118.1%)',     
+            'bgradient': 'linear-gradient(0deg, rgba(1,40,55,1) 25%, rgba(0,61,85,1) 50%, rgba(0,80,111,1) 75%, rgba(0,120,166,0) 100%)',     
         }),
         borderRadius: {
             none: '0',

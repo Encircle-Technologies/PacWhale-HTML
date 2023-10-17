@@ -54,7 +54,63 @@ $(document).ready(function ($) {
                 }  
             });
         });
-    }            
+    }     
+    
+    //Badge slider
+    if($(".badge").length) {
+        var badgeSlide = new Swiper(".badge-slider", {
+            spaceBetween: 28,
+            centeredSlides: !0,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: !1
+            },
+            breakpoints: {
+                320: {
+                    centeredSlides: true,
+                    loop: true,
+                    slidesPerView: 1,
+                    spaceBetween: 28
+                },
+                375: {
+                    centeredSlides: true,
+                    loop: true,
+                    slidesPerView: 2,
+                    spaceBetween: 28
+                },
+                640: {
+                    centeredSlides: true,
+                    loop: true,
+                    slidesPerView: 2.5,
+                    spaceBetween: 28
+                },
+                768: {
+                    centeredSlides: true,
+                    loop: true,
+                    slidesPerView: 2.5,
+                    spaceBetween: 28
+                },
+                992: {
+                    centeredSlides: true,
+                    loop: true,
+                    slidesPerView: 3,
+                    spaceBetween: 40
+                },
+                1200: {
+                    centeredSlides: !1,
+                    loop: !1,
+                    slidesPerView: 5,
+                    spaceBetween: 40
+                },
+                1366: {
+                    centeredSlides: !1,
+                    loop: !1,
+                    slidesPerView: 5,
+                    spaceBetween: 40
+                }
+            }
+        });
+    }
 });
 
 // Responsive menu start

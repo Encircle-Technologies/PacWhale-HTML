@@ -1,0 +1,503 @@
+@import "tailwindcss/utilities";
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+@layer base {
+    *, ::before, ::after{
+        @apply box-border;
+    }    
+    body {
+        @apply p-0 m-0 font-calibri text-Font text-16 leading-[22px] relative overflow-x-hidden;  
+    }
+    body.menu-open {
+        @apply overflow-hidden;
+    }    
+    .container-fluid {
+        @apply px-80 xlscreen:px-40 mdscreen2:px-30 mdscreen:px-30 w-full;  
+    } 
+    .container-small {
+        @apply px-40 xlscreen:px-20 mdscreen:px-15 w-full;   
+    }
+    p {
+        @apply m-0 text-16 leading-[22px] font-400; 
+    }  
+    a {
+        @apply no-underline; 
+    }
+    a, button, input, textarea, select {
+        @apply outline-0 no-underline;
+        box-shadow: none; 
+    }
+    a:hover {
+        @apply transition-all duration-300;
+    }
+    ul {
+        @apply p-0 mt-0;
+    }  
+    ul li {
+        @apply list-none;
+    }
+    img {
+        @apply block;
+    }
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
+        @apply m-0 font-futurapt;
+    }
+    .big h1, .big .h1,
+    .big h2, .big .h2 {
+        @apply text-[55px] leading-[55px] xl:text-[100px] xl:leading-[100px];
+    } 
+    h1, .h1 {
+        @apply text-48 leading-[110px] xl:text-64 xl:leading-[100px];
+    } 
+    h2, .h2 {
+        @apply text-32 xl:text-48 leading-[110%]; 
+    }
+    h3, .h3 {
+        @apply text-32 leading-[110%]; 
+    }
+    h4, .h4 {
+        @apply text-24;
+    }
+    .subtitle2 h4 {
+        @apply text-20;
+    }
+    h5, .h5 {
+        @apply text-16 leading-[26px];
+    }
+    .subtitle2 h5 {
+        @apply text-14 leading-[24px];
+    }
+    h6, .h6 {
+        @apply text-12 leading-[22px];
+    }
+
+    .content {
+        @apply relative flex flex-col gap-5 w-full;
+    }
+    .content p a {
+        @apply no-underline ease-in duration-300 delay-150 text-Orange 
+    }
+    .content p {
+        @apply text-Font text-16 leading-26 font-400 not-italic relative block;
+    }
+    .content p a {
+        @apply hover:underline
+    }
+    .content_white p,
+    .content_white p a {
+        @apply text-White
+    }
+
+    .global-list-two ul {
+        @apply columns-2 relative m-0 p-0 w-full list-none lg:gap-10;
+    }
+    .global-list-two ul li {
+        @apply text-Font text-16 leading-[150%] font-300 not-italic m-0 mb-10 last:mb-0 p-0 pl-20 relative block;
+    }
+    .global-list-two ul li:before {
+        content: "";
+        @apply absolute top-[7px] left-0 w-[10px] h-[10px] rounded-[25px] bg-Cyan;
+    }
+}
+
+@layer components {
+    @keyframes smoothScroll {
+        0% {
+            transform: translateY(-100px);
+        }
+        100% {
+            transform: translateY(-54px);
+        }
+    }
+    @keyframes smoothScroll2 {
+        0% {
+            transform: translateY(-100px);
+        }
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    .row {
+        @apply flex flex-wrap;
+    } 
+    .h-btn-blue {
+        @apply overflow-hidden relative z-1 text-center bg-Orange text-White border-0 rounded-[46px] px-22 py-6 text-14 leading-24 font-futurapt font-600 uppercase not-italic no-underline duration-300 delay-150 ease-linear;
+    }
+    .h-btn-blue:before {
+        content: "";
+        @apply absolute top-0 right-0 w-0 h-full bg-PWF_1 -z-1 duration-300 delay-150 ease-linear;
+    }
+    .h-btn-blue:hover:before {
+        @apply w-full left-0;
+    }
+    .btn-big-Orange {
+        @apply inline-block text-center bg-Orange border-0 rounded-[48px] px-40 py-[15px] font-futurapt font-600 text-16 leading-26 lg:text-24 lg:leading-[31px] not-italic text-White uppercase relative z-1 overflow-hidden transition-all duration-500 ease-in-out;            
+    }
+    .btn-big-Orange:before {
+        content: "";
+        @apply absolute top-0 right-0 w-0 h-full bg-PWF_1 -z-1 duration-300 delay-150 ease-linear;
+    }
+    .btn-big-Orange:hover:before {
+        @apply w-full left-0;
+    }
+
+    .btn-Orange {
+        @apply inline-block text-center bg-Orange border-0 rounded-[48px] px-40 py-[15px] font-futurapt font-600 text-16 not-italic text-White uppercase relative z-1 overflow-hidden transition-all duration-500 ease-in-out;            
+    }
+    .btn-Orange:before {
+        content: "";
+        @apply absolute top-0 right-0 w-0 h-full bg-PWF_1 -z-1 duration-300 delay-150 ease-linear;
+    }
+    .btn-Orange:hover:before {
+        @apply w-full left-0;
+    }
+
+    .btn-pattern {
+        @apply inline-block w-full text-center bg-PWF_1 border-0 rounded-[16px] px-40 py-[15px] font-futurapt font-600 xl:text-24 text-16 xlscreen:leading-26 not-italic text-White uppercase relative z-1 overflow-hidden transition-all duration-500 ease-in-out;            
+    }
+    .btn-pattern::after {
+        content: "";
+        @apply absolute top-0 left-0 w-full h-full bg-[url('./../../images/button-pattern.svg')] bg-no-repeat bg-center bg-cover -z-1;
+    }
+    .btn-pattern:before {
+        content: "";
+        @apply absolute top-0 right-0 w-0 h-full bg-Orange -z-2 duration-300 delay-150 ease-linear;
+    }
+    .btn-pattern:hover:before {
+        @apply w-full left-0;
+    }
+
+
+    .line-clamp-two {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;   
+    }  
+    .line-clamp-three {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden; 
+    }
+    .line-clamp-four {
+        display: -webkit-box;  
+        -webkit-line-clamp: 4;  
+        -webkit-box-orient: vertical; 
+        overflow: hidden; 
+    }
+    .title {
+        @apply relative;
+    }
+    .title h1,
+    .title .h1,
+    .title h2,
+    .title .h2,
+    .title h3,
+    .title .h3,
+    .title h4,
+    .title .h4,
+    .title h5,
+    .title .h5,
+    .title h6,
+    .title .h6 {
+        @apply font-600 not-italic m-0 p-0;
+    }
+
+    .title-white h1,
+    .title-white .h1,
+    .title-white h2,
+    .title-white .h2,
+    .title-white h3,
+    .title-white .h3,
+    .title-white h4,
+    .title-white .h4,
+    .title-white h5,
+    .title-white .h5,
+    .title-white h6,
+    .title-white .h6 {
+        @apply text-White;
+    }
+
+    .title-Darkblue h1,
+    .title-Darkblue .h1,
+    .title-Darkblue h2,
+    .title-Darkblue .h2,
+    .title-Darkblue h3,
+    .title-Darkblue .h3,
+    .title-Darkblue h4,
+    .title-Darkblue .h4,
+    .title-Darkblue h5,
+    .title-Darkblue .h5,
+    .title-Darkblue h6,
+    .title-Darkblue .h6 {
+        @apply text-Darkblue;
+    }
+
+    .proInfo-landscape {
+        @apply relative overflow-hidden w-full pt-[69.40%] block;
+    }
+
+    .img-landscape {
+        @apply pt-[80%];
+    }
+    .water_BG {
+        @apply bg-[url('./../../images/IMG_3996_crop1_MONO_RES.png')] bg-no-repeat bg-cover;
+    }
+}
+
+@layer utilities {
+    /* Header Start */        
+        .announcement-bar {
+            @apply duration-300 delay-150 ease-linear;
+        }
+        .announcement-bar p {
+            @apply text-White font-futurapt text-14 leading-24 md:text-16 md:leading-26 font-600 uppercase;
+        }
+        .announcement-bar:hover {
+            @apply gap-4
+        }
+        header.header {
+            @apply absolute top-0 left-0 w-full z-999 bg-transparent;   
+        }
+        header.header .logo .l-st,
+        header.header.is-sticky .logo .l-no {
+            @apply hidden
+        }
+        header.header .logo .l-no,
+        header.header.is-sticky .logo .l-st {
+            @apply block
+        }
+        header.is-sticky {
+            animation: smoothScroll 1s forwards;
+            z-index: 1030;
+            @apply sticky top-0 bg-White;
+        }
+        .announce-hide header.is-sticky {
+            animation: smoothScroll2 1s forwards;
+        }
+        header.header .logo img {
+            @apply w-full max-w-[290px] m-auto object-contain block; 
+        }
+        .navbar-toggler {
+            @apply cursor-pointer;
+        }
+        .navbar {
+            @apply w-full xl:max-w-[calc(100%_-_394px)] xxl:max-w-[calc(100%_-_448px)];
+        }
+        .navbar .mobile-menu-main {
+            @apply flex flex-col justify-center xl:items-end m-0 p-0 xl:w-full xl:gap-5;
+        }
+        .navbar .mobile-menu-main .main>ul {
+            @apply flex flex-wrap items-center my-0 gap-x-8 xxl:gap-x-10;
+        }
+        .navbar .mobile-menu-main .main svg path {
+            @apply duration-300 delay-300 ease-linear
+        }
+        .navbar .mobile-menu-main .main .btn-custom a:hover svg path {
+            @apply stroke-Orange
+        }
+        .is-sticky .navbar .mobile-menu-main .main svg path {
+            @apply stroke-Darkblue;
+        }
+        .navbar ul>li {
+            @apply flex flex-wrap m-0 p-0 xl:pb-30 static transition-all duration-500 ease-in-out
+        }
+        .navbar ul>li>a {
+            @apply flex flex-wrap m-0 p-0 text-White text-16 leading-26 font-futurapt font-600 uppercase relative transition-all duration-500 ease-in-out;
+        }
+        .is-sticky .navbar ul>li>a {
+            @apply text-Darkblue;
+        }
+        .navbar ul>li>a:after {
+            content: "";
+            @apply absolute bottom-0 right-0 w-0 h-[1px] bg-Orange duration-300 delay-150 ease-linear;
+        }
+        .is-sticky .navbar ul>li>a:after {
+            @apply bg-Blueho;
+        }
+        .navbar ul>li:hover>a:after {
+            @apply w-full left-0;
+        }
+        .navbar ul>li:hover>a,
+        .navbar ul>li.parentitem-active>a,
+        .navbar ul>li.menuitem-active>a {
+            @apply text-Orange;
+        }
+        .is-sticky .navbar ul>li:hover>a,
+        .is-sticky .navbar ul>li.parentitem-active>a,
+        .is-sticky .navbar ul>li.menuitem-active>a {
+            @apply text-Darkblue;
+        }
+        .navbar ul>li .submenu-button {
+            @apply hidden
+        }        
+        .navbar ul>li.has-sub>ul.sub-menu {
+            @apply hidden m-0 py-20 xl:py-40 xl:px-80 px-30 flex-col items-start justify-center gap-7 w-full absolute top-[100%] left-0 bg-Bluelight xl:bg-White duration-300 delay-150 ease-linear;
+        }
+        .navbar ul>li.has-sub:hover>ul.sub-menu {
+            @apply flex;
+        }
+        .navbar ul>li.has-sub>ul.sub-menu>li {
+            @apply p-0 w-full
+        }
+        .navbar ul>li.has-sub>ul.sub-menu>li ul {
+            @apply flex flex-col gap-1 mb-[28px] last:mb-0;
+        }
+        .navbar ul>li.has-sub>ul.sub-menu>li ul li {
+            @apply p-0 w-auto
+        }
+        .navbar ul>li.has-sub>ul.sub-menu>li ul li a {
+            @apply p-0 font-calibri font-700 text-PWF_1 text-16 leading-26 capitalize transition-all duration-500 ease-in-out hover:text-Orange
+        }
+        .navbar ul>li.has-sub>ul.sub-menu li .landscape {
+            @apply relative pt-[70%]
+        }
+        .navbar ul>li.has-sub>ul.sub-menu li .landscape img {
+            @apply absolute top-0 left-0 w-full h-full object-cover;
+        }
+        .search-bar.active {
+            @apply block w-full
+        }
+    /* Header End */
+    
+    /* Banner Start */
+    .herobanner-wrapper {
+        @apply pt-[52px] md:pt-[54px]
+    }
+    .announce-hide .herobanner-wrapper {
+        @apply pt-0
+    }
+    .herobanner-wrapper .title h1 span {
+        /* @apply font-ambroise font-700; */
+        -webkit-text-fill-color: transparent;
+        -webkit-text-stroke-color: #fff;
+        -webkit-text-stroke-width: 2px;
+    }
+    .herobanner-wrapper .title h1 p {
+        @apply font-600
+    }
+    /* Banner End */
+
+    /* ecoTour_grid Start */
+    .ecoTour_grid .card .landscape {
+        @apply relative overflow-hidden pt-[69.70%];
+    }
+    .ecoTour_grid .card .landscape img {
+        @apply absolute top-0 left-0 duration-300 delay-150 ease-linear;
+    }
+    .ecoTour_grid .card:hover .img img {
+        @apply grayscale-[1] hue-rotate-30 contrast-125 saturate-150;
+    }
+    /* ecoTour_grid End */
+    
+}      
+
+/* Responsive CSS Start */
+
+@screen xlscreen {
+    header.header .logo img {
+        @apply max-h-[80px]
+    }
+    .navbar {
+        @apply overflow-y-auto overflow-x-hidden h-[calc(100vh_-_175px)] w-full left-0 px-0 absolute top-[100%] duration-300 ease-linear delay-150 max-w-none
+    }
+    .announce-hide .navbar {
+        @apply h-[calc(100vh_-_121px)]
+    }
+    .navbar {
+        @apply hidden;  
+    }
+    .header .navbar.active {
+        @apply block bg-White;   
+    }
+    .header #menu-main-menu {
+        @apply w-full m-0 p-0 mb-[40px] relative h-auto mt-20 justify-start; 
+    }
+    .navbar .mobile-menu-main .main>ul {
+        @apply flex-col items-start
+    }
+    .navbar ul>li.has-sub:hover>ul.sub-menu {
+        @apply hidden;
+    }
+    .navbar ul>li.has-sub>ul.sub-menu.open {
+        @apply flex py-20 px-30;
+    }
+    header.header .navbar ul li ul.sub-menu {
+        @apply py-0 px-0 text-left relative flex-col bg-Bluelight w-full gap-0 drop-shadow-none;
+        transform: inherit;
+    }
+    .navbar ul > li > ul.sub-menu > li {
+        @apply py-15 px-40 w-full;
+    }
+    .navbar ul > li > ul.sub-menu li a {}
+    .navbar ul > li:hover > ul.sub-menu {
+        @apply hidden;
+    }
+    .navbar ul > li:hover > ul.sub-menu.open {
+        @apply flex;
+    }
+    .navbar ul > li.has-sub {
+        @apply justify-between items-center mb-0 w-full
+    }
+    .navbar ul > li > a {
+        @apply order-1 text-16 leading-22 py-15 px-30 text-Darkblue
+    }
+    .navbar ul > li > a:after {
+        @apply hidden
+    }
+    .navbar ul>li:hover>a {
+        @apply text-Blueho;
+    }
+    .navbar ul > li > a.active {
+        @apply text-Blueho
+    }
+    .navbar ul > li > .submenu-button {
+        @apply order-2 block leading-0 p-10 mx-20 cursor-pointer
+    }
+    .navbar ul > li > .submenu-button svg {
+        @apply fill-Darkblue;
+    }
+    .navbar ul > li > .submenu-opened svg {
+        @apply fill-Blueho;
+    }
+    .navbar ul > li > ul.open {
+        @apply flex order-3 animate-none
+    }
+    .navbar ul > li > .submenu-button.submenu-opened svg {
+        @apply rotate-180;
+    }
+    .navbar ul>li:first-child>ul.sub-menu li:first-child {
+        @apply ml-0
+    }
+    .navbar ul>li>ul.sub-menu li {
+        @apply gap-5
+    }
+    header.header .navbar-toggler span {
+        @apply rounded-25 h-[3px] transition-all duration-500 ease-in-out w-[25px] rotate-0 bg-White hover:bg-Orange
+    }
+    header.header.is-sticky .navbar-toggler span {
+        @apply bg-Darkblue;
+    }
+    .menu-open header.header .navbar-toggler span {
+        @apply bg-Orange
+    }
+    header.header .navbar ul li.current-menu-item a {
+        @apply text-Blueho;
+    }
+    .is-sticky .mob_num a svg path {
+        @apply stroke-Darkblue
+    }
+    .mob_num a svg path {
+        @apply duration-300 delay-150 ease-linear;
+    }
+    .is-sticky .mob_num a:hover svg path,
+    .mob_num a:hover svg path {
+        @apply stroke-Orange;
+    }
+    
+}
+/* Responsive CSS End */

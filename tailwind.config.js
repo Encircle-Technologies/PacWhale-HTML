@@ -140,6 +140,7 @@ module.exports = {
             40: '40px',
             45: '45px',
             50: '50px',
+            55: '55px',
             60: '60px',
             70: '70px',
             80: '80px',
@@ -251,7 +252,8 @@ module.exports = {
         },
         backgroundImage: theme => ({
             none: 'none',
-            'bgradient': 'linear-gradient(0deg, rgba(1,40,55,1) 25%, rgba(0,61,85,1) 50%, rgba(0,80,111,1) 75%, rgba(0,120,166,0) 100%)',     
+            'bgradient': 'linear-gradient(0deg, rgba(1,40,55,1) 25%, rgba(0,61,85,1) 50%, rgba(0,80,111,1) 75%, rgba(0,120,166,0) 100%)',
+            'footergradient': 'linear-gradient(180deg, rgba(0,150,183,1) 0%, rgba(0,150,183,0) 100%)',     
         }),
         borderRadius: {
             none: '0',
@@ -298,19 +300,12 @@ module.exports = {
             125: '1.25',
         },
         boxShadow: {
-            'cardshadow': '0px 4px 10px 0px rgba(0, 0, 0, 0.1)',
-            'regularshadow': '0px 4px 4px rgba(0, 0, 0, 0.25)',
-            'btnshadow': '3px 6px 19px rgba(28, 42, 69, 0.15)',
-            ellips: '3px 5px 18px rgba(0, 0, 0, 0.25)',
-            offered: '0px 4px 4px rgba(0, 153, 219, 0.2)',            
+            'cardshadow': '0px 4px 10px 0px rgba(0, 0, 0, 0.1)',           
         },
         outline: {
             none: 'none',
         },
         extend: {
-            objectPosition: {
-                // 'center-290': 'center -290px',
-            },
             maxWidth: {
                 auto: 'auto',
                 container: '1400px',                
@@ -448,7 +443,6 @@ module.exports = {
         }
     },
     variantOrder: [
-
     ],
     variants: {
         // extend: {},

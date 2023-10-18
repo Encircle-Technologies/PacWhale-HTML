@@ -111,6 +111,38 @@ $(document).ready(function ($) {
             }
         });
     }
+    if($(".adventure_wrapper").length) {
+        var adventurethumb = new Swiper(".adventure-thumb", {
+            spaceBetween: 10,
+            slidesPerView: 1,
+            freeMode: true,
+            watchSlidesProgress: true,
+            speed: 1000,
+            // autoplay: {
+            //     delay: 1500,
+            //     disableOnInteraction: false,
+            // },
+          });
+          var adventureslider = new Swiper(".adventure-slider", {
+            spaceBetween: 10,
+            speed: 1000,
+            // autoplay: {
+            //     delay: 1500,
+            //     disableOnInteraction: false,
+            // },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev"
+            },
+            thumbs: {
+                swiper: adventurethumb
+            }
+          });
+    }
 });
 
 // Responsive menu start

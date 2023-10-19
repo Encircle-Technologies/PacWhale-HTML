@@ -118,18 +118,10 @@ $(document).ready(function ($) {
             freeMode: true,
             watchSlidesProgress: true,
             speed: 1000,
-            // autoplay: {
-            //     delay: 1500,
-            //     disableOnInteraction: false,
-            // },
           });
           var adventureslider = new Swiper(".adventure-slider", {
             spaceBetween: 10,
             speed: 1000,
-            // autoplay: {
-            //     delay: 1500,
-            //     disableOnInteraction: false,
-            // },
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -143,7 +135,42 @@ $(document).ready(function ($) {
             }
           });
     }
+    // accordion Start
+    if($('.faq').length) {
+        $(function () {
+            $(".accordion-content:not(:first-of-type)").css("display", "none");
+            $(".js-accordion-title:first-of-type").addClass("open"); 
+            $(".js-accordion-title").click(function () {
+              $(".open").not(this).removeClass("open").next().slideUp(500);
+              $(this).toggleClass("open").next().slideToggle(500);
+            });
+        });
+    }
+    // accordion End
+
+    if($('.zigzag-img-content').length) {
+        const video = document.getElementById("video");
+        const circlePlayButton = document.getElementById("circle-play-b");
+
+        function togglePlay() {
+            if (video.paused || video.ended) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        circlePlayButton.addEventListener("click", togglePlay);
+        video.addEventListener("playing", function () {
+            circlePlayButton.style.opacity = 0;
+        });
+        video.addEventListener("pause", function () {
+            circlePlayButton.style.opacity = 1;
+        });
+    }
+    
 });
+
 
 // Responsive menu start
 (function ($) {

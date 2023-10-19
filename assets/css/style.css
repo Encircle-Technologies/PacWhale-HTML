@@ -2,6 +2,10 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
+video::-webkit-media-controls {
+    display: none;
+}
+
 @layer base {
     *, ::before, ::after{
         @apply box-border;
@@ -83,6 +87,9 @@
     }
     .content p {
         @apply text-Font text-16 leading-26 font-400 not-italic relative block;
+    }
+    .content.bold p {
+        @apply font-700
     }
     .content.white p {
         @apply text-White
@@ -286,6 +293,21 @@
         @apply text-Darkblue;
     }
 
+    .title-Bluedeep h1,
+    .title-Bluedeep .h1,
+    .title-Bluedeep h2,
+    .title-Bluedeep .h2,
+    .title-Bluedeep h3,
+    .title-Bluedeep .h3,
+    .title-Bluedeep h4,
+    .title-Bluedeep .h4,
+    .title-Bluedeep h5,
+    .title-Bluedeep .h5,
+    .title-Bluedeep h6,
+    .title-Bluedeep .h6 {
+        @apply text-Bluedeep;
+    }
+
     .title-PWF_1 h1,
     .title-PWF_1 .h1,
     .title-PWF_1 h2,
@@ -343,7 +365,7 @@
         header.is-sticky {
             animation: smoothScroll 1s forwards;
             z-index: 1030;
-            @apply sticky top-0 bg-White;
+            @apply fixed top-0 bg-White;
         }
         .announce-hide header.is-sticky {
             animation: smoothScroll2 1s forwards;
@@ -462,7 +484,7 @@
         @apply grayscale-[1] hue-rotate-30 contrast-125 saturate-150;
     }
     .ecoTour_grid .card .btn {
-        @apply font-futurapt font-600 lg:text-24 text-PWF_1 uppercase duration-300 delay-150 ease-linear;
+        @apply font-futurapt font-600 xsscreen3:text-20 text-24 text-PWF_1 uppercase duration-300 delay-150 ease-linear;
     }
     .ecoTour_grid .card .btn img {
         @apply duration-300 delay-150 ease-linear;
@@ -513,13 +535,13 @@
     .adventure-arrow:hover img {
         filter: invert(26%) sepia(93%) saturate(5%) hue-rotate(158deg) brightness(104%) contrast(350%);
     }
-    .adventure-slider .adventure-pagination {
+    .adventure_wrapper .adventure-slider .adventure-pagination {
         @apply relative top-0 bottom-0 w-auto flex flex-wrap items-center justify-center gap-5
     }
-    .adventure-slider .adventure-pagination .swiper-pagination-bullet {
+    .adventure_wrapper .adventure-slider .adventure-pagination .swiper-pagination-bullet {
         @apply m-0 w-[15px] h-[15px] block opacity-100 border-2 border-solid border-PWF_2 rounded-30 bg-transparent duration-300 delay-150 ease-linear;
     }
-    .adventure-slider .adventure-pagination .swiper-pagination-bullet-active {
+    .adventure_wrapper .adventure-slider .adventure-pagination .swiper-pagination-bullet-active {
         @apply bg-PWF_2;
     }
     .adventure-thumb .title p {
@@ -591,7 +613,57 @@
     .breadcrumb-wrapper .breadcrumb span {
         @apply block font-calibri font-700 text-White capitalize text-14 leading-24 m-0 p-0;
     }
+    .whyChoose .breadcrumb-wrapper {
+        @apply bg-[50%_70%]
+    }
     /* breadcrumb End */
+
+    /* accordion Start */
+    .faq .accordion-title {
+        @apply flex flex-wrap items-center justify-between uppercase border-0 border-b-1 border-solid border-PWF_2 pb-28 mb-[28px] font-600 text-Bluedeep;
+    }
+    .faq .accordion-title svg path {
+        @apply duration-300 delay-150 ease-linear
+    }
+    .faq .accordion-title.open svg path:last-of-type {
+        @apply opacity-0;
+    }
+    .faq .accordion-content .landscape {
+        @apply relative overflow-hidden pt-[44.80%]
+    }
+    .faq .accordion-content .landscape img {
+        @apply absolute top-0 left-0 rounded-16
+    }
+    /* accordion End */
+
+    /* zigzag-img-content Start */
+    .zigzag-img-content .img.portrait,
+    .zigzag-img-content .video.portrait {
+        @apply relative overflow-hidden pt-[88.85%] drop-shadow-card rounded-16 ;
+    }
+    .zigzag-img-content .img.portrait img {
+        @apply absolute top-0 left-0;
+    }
+    .zigzag-img-content .video.portrait video {
+        @apply absolute top-0 left-0 w-full h-full object-cover;
+    }
+    .zigzag-img-content .video.portrait:before {
+        content: "";
+        @apply absolute top-0 left-0 w-full h-full bg-Black bg-opacity-25 z-1;
+    }
+    .zigzag-img-content .video .play-gif {
+        @apply absolute top-50_per left-50_per translate-x-minus_50 translate-y-minus_50 z-1;
+    }
+    .zigzag-img-content .video .play-gif img {
+        @apply cursor-pointer;
+    }
+    .zigzag-img-content .store .landscape {
+        @apply relative overflow-hidden pt-[57.32%] rounded-16 drop-shadow-card;
+    }
+    .zigzag-img-content .store .landscape img {
+        @apply absolute top-0 left-0;
+    }
+    /* zigzag-img-content End */
 }      
 
 /* Responsive CSS Start */

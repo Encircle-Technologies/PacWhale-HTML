@@ -10,6 +10,10 @@ $(document).ready(function ($) {
         }
     });
 
+    $(window).resize(function() {
+        $('.breadcrumb-wrapper').css("padding-top", $(".header").height());
+    }).resize()
+
     // announcement-close
 
     if($(".top-bar").length) {
@@ -135,19 +139,70 @@ $(document).ready(function ($) {
             }
           });
     }
+
+    if($(".ecoTours_single").length) {
+        var ecosingleslider = new Swiper(".ecosingle-slider", {
+            spaceBetween: 0,
+            speed: 1000,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+              nextEl: ".swiper-button-next",
+              prevEl: ".swiper-button-prev"
+            },
+            on: {
+                transitionStart: function(){                  
+                    var videos = document.querySelectorAll('video');            
+                    Array.prototype.forEach.call(videos, function(video){
+                        video.pause();
+                    });
+                },
+                
+                transitionEnd: function(){                  
+                    var activeIndex = this.activeIndex;
+                    var activeSlide = document.getElementsByClassName('swiper-slide')[activeIndex];
+                    var activeSlideVideo = activeSlide.getElementsByTagName('video')[0];
+                    activeSlideVideo.play();                
+                },
+              
+            }
+        });
+    }
     // accordion Start
-    if($('.faq').length) {
+    if($('.faq, .faq_wrapper').length) {
         $(function () {
             $(".accordion-content:not(:first-of-type)").css("display", "none");
             $(".js-accordion-title:first-of-type").addClass("open"); 
             $(".js-accordion-title").click(function () {
-              $(".open").not(this).removeClass("open").next().slideUp(500);
-              $(this).toggleClass("open").next().slideToggle(500);
+                $(".open").not(this).removeClass("open").next().slideUp(500);
+                $(this).toggleClass("open").next().slideToggle(500);
             });
         });
     }
     // accordion End
 
+    // accordion Start
+    if($('.blog-list').length) {
+        // return this.each(function () {
+            function resizeFix() {
+            var size = 1023;
+                if ($(window).width() <= size) {
+                    $(".category:not(:first-of-type) .category-list").css("display", "none");
+                    $(".category:first-of-type .title").addClass("open"); 
+                    $(".category .title .btn").click(function () {
+                    $(".open").not('.category .title').removeClass("open").next().slideUp(500);
+                    $('.category .title').toggleClass("open").next().slideToggle(500);
+                    });
+                }
+            };
+            resizeFix();
+            return $(window).on('resize', resizeFix);
+        // });
+    }
+
+    // Video play
     if($('.zigzag-img-content').length) {
         const video = document.getElementById("video");
         const circlePlayButton = document.getElementById("circle-play-b");
@@ -168,7 +223,39 @@ $(document).ready(function ($) {
             circlePlayButton.style.opacity = 1;
         });
     }
-    
+    if($('.ecoTours_single').length) {
+        const video = document.getElementById("video");
+        const circlePlayButton = document.getElementById("circle-play-b");
+
+        function togglePlay() {
+            if (video.paused || video.ended) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        circlePlayButton.addEventListener("click", togglePlay);
+        video.addEventListener("playing", function () {
+            circlePlayButton.style.opacity = 0;
+        });
+        video.addEventListener("pause", function () {
+            circlePlayButton.style.opacity = 1;
+        });
+    }
+
+    // Tabs
+    if($('.ecoTours_single').length) {
+        $('.tabs>ul').on('click', 'li', function(){
+            $('li').removeClass('active');
+            $('.tabs>ul').toggleClass('expanded');
+            $(this).addClass('active');
+            var tab_id = $(this).attr('data-tab');
+            $('.tab-content').removeClass('current');
+            $(this).addClass('current');
+            $('#'+tab_id).addClass('current');
+        });
+    }
 });
 
 
